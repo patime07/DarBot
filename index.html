@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AraProf.ai - مرحبا</title>
+    <link rel="stylesheet" href="css/welcome.css">
+</head>
+<body>
+    <div class="welcome-container">
+        <div class="welcome-content">
+            
+            <!-- AI Robot Character -->
+            <div class="character-container">
+                    <div class="fox-icon">🤖</div>
+                    <div class="header-text">
+                        <h1>!أهلا وسهلا</h1>
+                        <p> DarBot أنا الأستاذ </p>
+                        <p>مساعدك باش تتعلم الذكاء الاصطناعي بالدارجة المغربية</p>
+                    </div>
+            </div>
+         
+            <!-- Continue Button -->
+            <div class="continue-section">
+                <button class="continue-btn" onclick="startJourney()">
+يالله نبداو
+                
+    </button>
+        <a href="stats.html" class="stats-link">📊 الإحصائيات</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function startJourney() {
+            // Add a small animation delay for better UX
+            const button = document.querySelector('.continue-btn');
+            button.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                window.location.href = 'levels.html';
+            }, 150);
+        }
+
+        // Add some interactive fox animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const fox = document.querySelector('.fox-icon');
+            
+            // Fox hover animation
+            if (fox) {
+                fox.addEventListener('mouseenter', () => {
+                    fox.style.transform = 'scale(1.15) rotate(8deg)';
+                });
+                
+                fox.addEventListener('mouseleave', () => {
+                    fox.style.transform = 'scale(1) rotate(0deg)';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

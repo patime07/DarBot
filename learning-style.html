@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AraProf.ai - ختر أسلوب التعلم ديالك</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Progress Bar -->
+        <div class="progress-bar-top">
+            <div class="progress-fill" style="width: 66%;"></div>
+        </div>
+
+        <!-- Header with AI Robot Icon -->
+        <header class="header">
+            <div class="header-content">
+                <div class="fox-icon">🤖</div>
+                <div class="header-text">
+                    <h1>كيفاش باغي تتعلم؟</h1>
+                    <p>ختر الطريقة اللي تتعلم بيها أحسن باش نخصص تجربتك</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="selection-section">
+                <div class="level-options">
+                    <!-- Visual Learner -->
+                    <div class="level-card" onclick="selectLearningStyle('visual')" data-style="visual">
+                        <div class="level-card-header">
+                            <div class="level-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">👁️</div>
+                            <div class="level-info">
+                                <h3>بصري</h3>
+                                <div class="learners">تعلم بالرؤية</div>
+                            </div>
+                        </div>
+                        <div class="level-description">
+                            أنت باغي المخططات والجداول والتمثيلات المرئية، وتتعلم أحسن بالرسومات ومقاطع الفيديو
+                        </div>
+                    </div>
+
+                    <!-- Auditory Learner -->
+                    <div class="level-card" onclick="selectLearningStyle('auditory')" data-style="auditory">
+                        <div class="level-card-header">
+                            <div class="level-icon" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">🎧</div>
+                            <div class="level-info">
+                                <h3>سمعي</h3>
+                                <div class="learners">تعلم بالسمع</div>
+                            </div>
+                        </div>
+                        <div class="level-description">
+                            تتعلم أحسن بالشروحات الشفهية والمحتوى الصوتي. تركز أحسن مع السرد الصوتي والمناقشات
+                        </div>
+                    </div>
+
+                    <!-- Kinesthetic Learner -->
+                    <div class="level-card" onclick="selectLearningStyle('kinesthetic')" data-style="kinesthetic">
+                        <div class="level-card-header">
+                            <div class="level-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">✋</div>
+                            <div class="level-info">
+                                <h3>تعلم باللمس</h3>
+                                <div class="learners">تعلم بالممارسة</div>
+                            </div>
+                        </div>
+                        <div class="level-description">
+                            تتعلم أحسن بالأنشطة العملية والتمارين التفاعلية. باغي تشتغل على مشاريع عملية
+                        </div>
+                    </div>
+
+                    <!-- Reading/Writing Learner -->
+                    <div class="level-card" onclick="selectLearningStyle('reading-writing')" data-style="reading-writing">
+                        <div class="level-card-header">
+                            <div class="level-icon" style="background: linear-gradient(135deg, #10b981, #059669);">📝</div>
+                            <div class="level-info">
+                                <h3>القراءة/الكتابة</h3>
+                                <div class="learners">تعلم بالنص</div>
+                            </div>
+                        </div>
+                        <div class="level-description">
+                            باغي المعلومات المكتوبة وتدوين الملاحظات. تتعلم أحسن من الكتب المدرسية والتمارين الكتابية 
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Continue Section -->
+                <div class="continue-section">
+                    <button class="btn-info" onclick="goBack()">← رجع</button>
+                    <button class="btn-continue" id="continue-btn" onclick="startLearning()" disabled>
+                        يالله نبداو نتعلم
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Selected Level Display -->
+        <div class="selected-info" id="selected-info" style="display: none;">
+            <div class="info-card">
+                <h4>الاختيار ديالك:</h4>
+                <p><strong>المستوى:</strong> <span id="selected-level">متقدم</span></p>
+                <p><strong>الأسلوب:</strong> <span id="selected-style">-</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Display selected level from previous page
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedLevel = urlParams.get('level') || localStorage.getItem('selectedLevel') || 'متقدم';
+            document.getElementById('selected-level').textContent = selectedLevel;
+            
+            if (selectedLevel) {
+                document.getElementById('selected-info').style.display = 'block';
+            }
+        };
+    </script>
+</body>
+</html>
